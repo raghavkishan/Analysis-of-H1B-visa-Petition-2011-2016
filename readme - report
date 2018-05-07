@@ -1,0 +1,105 @@
+Big Data Final Project
+=======================
+
+Goal: 
+Analyzing the performance of Multinomial Classification and performing detailed analysis w.r.t CASE STATUS, YEAR, PREVAILING WAGE, FULL_TIME_POSITION.
+
+Utilizing the H1B visa Petitions 2011-2016 Dataset from Kaggle. 
+I am applying multinomial classification techniques to predict the Case Status based on two to three feature parameters.
+
+Part I: Algorithms applied and their results(%):
+================================================ 
+1)Logistic Regression
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + JOB_TITLE + PREVAILING_WAGE
+Logistic Accuracy = 85.14065208880936
+Logistic Test Error = 14.859347911190646
+
+2)Decsion Tree
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + JOB_TITLE + PREVAILING_WAGE
+Decision Tree Accuracy = 86.3989709747777
+Decision Tree Test Error = 13.6010290252223
+
+3)Random Forest
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + JOB_TITLE + PREVAILING_WAGE
+Random Forest Accuracy = 86.37100833286729
+Random Forest Test Error = 13.628991667132706
+
+4)Naive Bayes
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + JOB_TITLE + PREVAILING_WAGE
+Naive Bayes Accuracy = 86.46048878698059
+Naive Bayes Test Error = 13.539511213019406
+
+5)One Vs Rest 
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + JOB_TITLE + PREVAILING_WAGE
+ovr Accuracy = 85.38113080923885
+ovr Test Error = 14.618869190761142
+--------------------------------------------------------------------------
+1)Logistic Regression
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + PREVAILING_WAGE
+Logistic Accuracy = 86.33145660293215
+Logistic Test Error = 13.668543397067845
+
+2)Decsion Tree
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + PREVAILING_WAGE
+Decision Tree Accuracy = 86.25898879536206
+Decision Tree Test Error = 13.741011204637942
+
+3)Random Forest
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + PREVAILING_WAGE
+Random Forest Accuracy = 86.25898879536206
+Random Forest Test Error = 13.741011204637942
+
+4)Naive Bayes
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + PREVAILING_WAGE
+Naive Bayes Accuracy = 86.38162662355762
+Naive Bayes Test Error = 13.618373376442383
+
+5)One Vs Rest 
+Rformula: CASE_STATUS ~ FULL_TIME_POSITION + PREVAILING_WAGE
+ovr Accuracy = 86.33145660293215
+ovr Test Error = 13.668543397067845
+
+Conclusion: 
+-From the above results it can be observed that all five algorithms have similar accuracy values.
+-Naive Bayes with "Rformula: CASE_STATUS ~ FULL_TIME_POSITION + JOB_TITLE + PREVAILING_WAGE" has the best Accuracy and least error.
+-It can also be observer that all algorithms with "FULL_TIME_POSITION + PREVAILING_WAGE" have better accuracy.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Part II: Detailed analysis performed on the dataset with respect to CASE STATUS, YEAR, PREVAILING WAGE, FULL_TIME_POSITION in the "Analysis.ipynb" file (Jupyter Notebook= Kernel:Apache Toree -  Scala).
+
+Most of the analysis performed by the users of this dataset(from kaggle) are w.r.t top 15 EMPLOYER_NAME and LOCATION. I have performed analysis using CASE STATUS, YEAR, PREVAILING WAGE, FULL_TIME_POSITION.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note - Execution:
+=================
+
+1)I have created the jar file called - "finalprojectbigdata_2.11-0.1.jar" which can be used to run using "spark-submit finalprojectbigdata_2.11-0.1.jar" command.
+THE INPUT DATA FILE "h1bMainData.csv" IS IN THE SAME LOCATION AS THE JAR FILE.
+
+The project can also be run using intellij. I have also placed the input data file in the project to run it in intellij.
+
+variable "inputDataFile" is assigned the file path.
+
+2)The project files also contains a jupyter notebook(.ipynb) that contains the analysis code.
+
+example output:
+
+*******************************************************************************************************************************************
+*******************************************************************************************************************************************
+ovr Accuracy = 86.22557230597432
+ovr Test Error = 13.774427694025682
+*******************************************************************************************************************************************
+*******************************************************************************************************************************************
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note:
+1)From the H1b Dataset(Kaggle), I have extracted 10,000 records for each year from 2011 to 2016, thus obtaining a file containing approximately 60,000 records.
+2) I have used println for the output statements and thus the output is printed with the log.
+3) Since the code for all algorithms is executed at once, the execution takes about 5 minutes.
+4) I have included the dataset in the zip file.
+ 
+
+References:
+============
+1) Data set source: https://www.kaggle.com/nsharan/h-1b-visa/data
+2) https://spark.apache.org/docs/2.2.0/ml-classification-regression.html#multinomial-logistic-regression
+3) https://spark.apache.org/docs/2.2.0/ml-classification-regression.html
